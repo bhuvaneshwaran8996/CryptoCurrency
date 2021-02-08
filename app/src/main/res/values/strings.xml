@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CryptoCurrency</string>
+    <string name="header_text">Global Market Cap:$178,237,534,086.27</string>
 </resources>

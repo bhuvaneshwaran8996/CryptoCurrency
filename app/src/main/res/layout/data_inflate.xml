@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.cryptocurrency.mvvm.model.Data" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="20dp">
+
+
+        <com.example.cryptocurrency.mvvm.controls.TextViewRegular
+
+            android:id="@+id/num_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="@{model.rank}"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            android:paddingLeft="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="1" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/cryptoImage"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/num_text"
+            android:background="@drawable/ic_search"
+
+            app:layout_constraintLeft_toRightOf="@id/num_text"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.example.cryptocurrency.mvvm.controls.TextViewRegular
+            android:id="@+id/cryptoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@id/cryptoImage"
+            android:text="@{model.name}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+
+
+            app:layout_constraintLeft_toRightOf="@id/cryptoImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Bitcoin" />
+
+        <com.example.cryptocurrency.mvvm.controls.TextViewRegular
+            android:id="@+id/changePercent24Hr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:layout_marginRight="20dp"
+            android:text='@{model.priceUsd24()}'
+            android:textColor="@color/red_dark"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="346dp"
+            tools:text="`121" />
+
+        <com.example.cryptocurrency.mvvm.controls.TextViewRegular
+            android:id="@+id/textViewRegular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_toLeftOf="@id/changePercent24Hr"
+            android:text="@{model.priceUsd()}"
+
+            android:textSize="20sp"
+
+            app:layout_constraintRight_toLeftOf="@id/changePercent24Hr"
+            tools:text="sdd"
+            tools:ignore="MissingConstraints" />
+
+
+        <View
+            android:id="@+id/sep_one"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/num_text"
+
+            android:layout_marginTop="20dp"
+            android:background="@color/light_gray"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/num_text"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
